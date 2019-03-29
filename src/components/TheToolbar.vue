@@ -1,65 +1,26 @@
 <template>
   <div>
-    <v-navigation-drawer
-      v-model="drawer"
-      class="hidden-md-and-up"
-      app
-      right
-      clipped
-      disable-resize-watcher
-    >
-      <v-list>
-        <v-list-tile
-          v-for="(link, index) in links"
-          :key="index"
-          :to="link.to"
-          exact
-        >
-          <v-list-tile-action>
-            <v-icon>
-              {{ link.icon }}
-            </v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content
-            class="subheading"
-          >
-            <v-list-tile-title>
-              {{ link.title }}
-            </v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-
     <v-toolbar
       app
       dark
-      clipped-right
       color="primary"
     >
       <v-toolbar-title
         class="headline"
       >
-        Vue
+        memo
       </v-toolbar-title>
-
       <v-spacer />
-
-      <v-toolbar-side-icon
-        class="hidden-md-and-up"
-        @click.stop="drawer = !drawer"
-      />
-
       <v-toolbar-items
         class="hidden-sm-and-down"
       >
         <v-btn
           v-for="(link, index) in links"
           :key="index"
-          :to="link.to"
-          class="title font-weight-light"
+          :to="link.location"
           flat
           exact
+          class="title font-weight-light"
         >
           {{ link.title }}
         </v-btn>
@@ -72,17 +33,18 @@
 export default {
   data() {
     return {
-      drawer: false,
       links: [
         {
           title: 'Home',
-          to: { name: 'home' },
-          icon: 'dashboard',
+          location: {
+            name: 'home',
+          },
         },
         {
           title: 'Gallery',
-          to: { name: 'gallery' },
-          icon: 'photo_library',
+          location: {
+            name: 'gallery',
+          },
         },
       ],
     };

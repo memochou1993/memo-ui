@@ -1,13 +1,12 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify';
-// import colors from 'vuetify/lib/util/colors';
+import colors from 'vuetify/lib/util/colors';
 import zhHant from 'vuetify/es5/locale/zh-Hant';
-import 'material-design-icons-iconfont/dist/material-design-icons.css';
-import '@fortawesome/fontawesome-free/css/all.css';
+import '@mdi/font/css/materialdesignicons.css';
 
 Vue.use(Vuetify, {
   theme: {
-    primary: '#1976D2',
+    primary: colors.indigo,
     secondary: '#424242',
     accent: '#82B1FF',
     error: '#FF5252',
@@ -16,7 +15,7 @@ Vue.use(Vuetify, {
     warning: '#FFC107',
   },
   customProperties: true,
-  iconfont: 'fa',
+  iconfont: 'mdi',
   lang: {
     locales: { zhHant },
     current: 'zh-Hant',
