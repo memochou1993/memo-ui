@@ -5,9 +5,7 @@
     <v-app>
       <TheToolbar />
       <v-content>
-        <v-container
-          grid-list-xl
-        >
+        <v-container>
           <router-view />
         </v-container>
       </v-content>

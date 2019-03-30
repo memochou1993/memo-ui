@@ -11,10 +11,10 @@ export default new Router({
       name: 'home',
       component: Home,
     },
-    {
-      path: '/gallery',
-      name: 'gallery',
-      component: () => import('./views/Gallery.vue'),
-    },
+    // {
+    //   path: '/gallery',
+    //   name: 'gallery',
+    //   component: () => import('./views/Gallery.vue'),
+    // },
   ],
 });
