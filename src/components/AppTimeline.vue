@@ -1,15 +1,26 @@
 <template>
   <div>
-    <v-timeline align-top>
+    <v-timeline
+      dense
+      align-top
+    >
       <v-timeline-item
         v-for="(item, index) in items"
         :key="index"
-        :color="colorize('type')(item.type.name)"
-        :icon="item.icon"
+        :color="colorize(item.type.name)"
         fill-dot
       >
+        <template
+          v-slot:icon
+        >
+          <v-icon
+            dark
+          >
+            {{ iconize(item.type.name) }}
+          </v-icon>
+        </template>
         <v-card
-          :color="colorize('type')(item.type.name)"
+          :color="colorize(item.type.name)"
           dark
         >
           <v-card-title
@@ -23,16 +34,23 @@
             <p>
               {{ item.content }}
             </p>
-            <v-btn
-              :color="colorize('type')(item.type.name)"
-              class="mx-0"
-              outline
+            <div
+              class="text-xs-right"
             >
-              Button
-            </v-btn>
+              <span
+                class="text--secondary"
+              >
+                {{ item.date }}
+              </span>
+            </div>
           </v-card-text>
         </v-card>
       </v-timeline-item>
+      <v-timeline-item
+        large
+        color="primary"
+        class="mb-5"
+      />
     </v-timeline>
   </div>
 </template>
@@ -49,20 +67,23 @@ export default {
   },
   data() {
     return {
-      //
+      q: '',
     };
   },
   computed: {
     ...mapState([
+      'icons',
       'colors',
     ]),
   },
   methods: {
-    colorize(type) {
-      const colors = this.colors;
-      return function(name) {
-        return colors[type][name];
-      }
+    iconize(name) {
+      const { type } = this.icons;
+      return type[name];
+    },
+    colorize(name) {
+      const { type } = this.colors;
+      return type[name];
     },
   },
 };

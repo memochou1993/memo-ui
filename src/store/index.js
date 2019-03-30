@@ -9,6 +9,22 @@ export default new Vuex.Store({
     record,
   },
   state: {
+    icons: {
+      type: {
+        text: 'mdi-notebook',
+        url: 'mdi-link',
+        image: 'mdi-file-image',
+        video: 'mdi-file-video',
+        audio: 'mdi-file-music',
+        file: 'mdi-file',
+        mood: 'mdi-face',
+        milestone: 'mdi-trophy',
+        html: 'mdi-language-html5',
+        markdown: 'mdi-markdown',
+        json: 'mdi-json',
+        coordinate: 'mdi-map-marker',
+      },
+    },
     colors: {
       type: {
         text: 'blue lighten-2',

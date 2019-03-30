@@ -24,9 +24,10 @@ export default {
   methods: {
     fetchRecords() {
       this.$store.dispatch('fetchRecords', {
-        url: `/users/me/records`,
+        url: '/users/me/records',
         params: {
           relationships: 'type,tags',
+          paginate: 50,
         },
       })
         .then(({ data }) => {
