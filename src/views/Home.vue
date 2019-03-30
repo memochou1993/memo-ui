@@ -1,6 +1,8 @@
 <template>
   <div>
-    <AppTimeline />
+    <AppTimeline
+      :items="records"
+    />
   </div>
 </template>
 
@@ -13,8 +15,29 @@ export default {
   },
   data() {
     return {
-      //
+      records: [],
     };
+  },
+  created() {
+    this.fetchRecords();
+  },
+  methods: {
+    fetchRecords() {
+      this.$store.dispatch('fetchRecords', {
+        url: `/users/me/records`,
+        params: {
+          relationships: 'type,tags',
+        },
+      })
+        .then(({ data }) => {
+          this.records = data;
+        })
+        .catch(() => {
+          this.$router.replace({
+            name: 404,
+          });
+        });
+    },
   },
 };
 </script>
