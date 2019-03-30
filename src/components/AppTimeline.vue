@@ -19,35 +19,12 @@
             {{ iconize(item.type.name) }}
           </v-icon>
         </template>
-        <v-card
+        <CardText
+          :item="item"
           :color="colorize(item.type.name)"
-          dark
-        >
-          <v-card-title
-            class="title"
-          >
-            {{ item.title }}
-          </v-card-title>
-          <v-card-text
-            class="white text--primary"
-          >
-            <p>
-              {{ item.content }}
-            </p>
-            <div
-              class="text-xs-right"
-            >
-              <span
-                class="text--secondary"
-              >
-                {{ item.date }}
-              </span>
-            </div>
-          </v-card-text>
-        </v-card>
+        />
       </v-timeline-item>
       <v-timeline-item
-        large
         color="primary"
         class="mb-5"
       />
@@ -57,8 +34,12 @@
 
 <script>
 import { mapState } from 'vuex';
+import CardText from '@/components/cards/CardText.vue';
 
 export default {
+  components: {
+    CardText,
+  },
   props: {
     items: {
       type: Array,
@@ -71,7 +52,7 @@ export default {
     };
   },
   computed: {
-    ...mapState([
+    ...mapState('record', [
       'icons',
       'colors',
     ]),
