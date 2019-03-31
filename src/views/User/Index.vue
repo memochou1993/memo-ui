@@ -38,7 +38,7 @@ export default {
       this.$store.dispatch('record/fetchRecords', {
         url: '/users/me/records',
         params: {
-          relationships: 'type,tags',
+          with: 'type,tags',
           paginate: 50,
         },
       })

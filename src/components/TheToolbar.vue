@@ -12,7 +12,7 @@
         ApiHub
       </v-toolbar-title>
       <v-spacer />
-      <AppAutocomplete />
+      <TheToolbarSearch />
       <v-toolbar-items>
         <v-btn
           icon
@@ -35,11 +35,11 @@
 </template>
 
 <script>
-import AppAutocomplete from '@/components/AppAutocomplete.vue';
+import TheToolbarSearch from '@/components/TheToolbarSearch.vue';
 
 export default {
   components: {
-    AppAutocomplete,
+    TheToolbarSearch,
   },
 };
 </script>

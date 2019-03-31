@@ -20,7 +20,7 @@
         <div>
           <AppChip
             :items="item.tags"
-            :color="secondary"
+            color="secondary"
           />
         </div>
         <div
