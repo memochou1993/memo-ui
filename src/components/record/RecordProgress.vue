@@ -31,11 +31,15 @@
             class="white text--primary"
           >
             <v-progress-circular
+              v-if="!noData"
               :size="60"
               :width="4"
-              :color="color"
+              :color="`${color} lighten-2`"
               indeterminate
-              class="ma-5"
+              class="my-5"
+            />
+            <RecordNoData
+              v-else
             />
           </v-card-text>
         </v-card>
@@ -45,12 +49,37 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+import RecordNoData from '@/components/record/RecordNoData.vue';
+
 export default {
-  data() {
-    return {
-      title: 'Loading...',
-      color: 'orange lighten-2',
-    };
+  components: {
+    RecordNoData,
+  },
+  computed: {
+    ...mapState([
+      'loading',
+      'error',
+      'noData',
+    ]),
+    color() {
+      if (this.error) {
+        return 'error lighten-2';
+      }
+      if (this.noData) {
+        return 'warning lighten-2';
+      }
+      return 'success lighten-2';
+    },
+    title() {
+      if (this.error) {
+        return this.error.message;
+      }
+      if (this.noData) {
+        return 'No Data Found';
+      }
+      return 'Loading...';
+    },
   },
 };
 </script>

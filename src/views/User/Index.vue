@@ -1,10 +1,10 @@
 <template>
   <div>
-    <AppTimeline
-      v-if="!loading"
+    <RecordTimeline
+      v-if="show"
       :items="records"
     />
-    <AppProgress
+    <RecordProgress
       v-else
     />
   </div>
@@ -12,13 +12,13 @@
 
 <script>
 import { mapState } from 'vuex';
-import AppTimeline from '@/components/AppTimeline.vue';
-import AppProgress from '@/components/AppProgress.vue';
+import RecordTimeline from '@/components/record/RecordTimeline.vue';
+import RecordProgress from '@/components/record/RecordProgress.vue';
 
 export default {
   components: {
-    AppTimeline,
-    AppProgress,
+    RecordTimeline,
+    RecordProgress,
   },
   data() {
     return {
@@ -28,8 +28,13 @@ export default {
   computed: {
     ...mapState([
       'loading',
+      'error',
+      'noData',
       'query',
     ]),
+    show() {
+      return !this.loading && !this.error && !this.noData;
+    },
   },
   watch: {
     query() {
@@ -51,11 +56,6 @@ export default {
       })
         .then(({ data }) => {
           this.records = data;
-        })
-        .catch(() => {
-          this.$router.replace({
-            name: 404,
-          });
         });
     },
   },

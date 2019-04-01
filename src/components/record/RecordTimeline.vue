@@ -7,7 +7,7 @@
       <v-timeline-item
         v-for="(item, index) in items"
         :key="index"
-        :color="colorize(item.type.name)"
+        :color="`${colorize(item.type.name)} lighten-2`"
         fill-dot
       >
         <template
@@ -21,20 +21,30 @@
         </template>
         <CardText
           :item="item"
-          :color="colorize(item.type.name)"
+          :color="`${colorize(item.type.name)} lighten-2`"
         />
       </v-timeline-item>
       <v-timeline-item
-        color="primary"
+        fill-dot
         class="mb-5"
-      />
+      >
+        <template
+          v-slot:icon
+        >
+          <v-icon
+            dark
+          >
+            mdi-dots-horizontal
+          </v-icon>
+        </template>
+      </v-timeline-item>
     </v-timeline>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
-import CardText from '@/components/cards/CardText.vue';
+import CardText from '@/components/record/cards/CardText.vue';
 
 export default {
   components: {

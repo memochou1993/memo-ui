@@ -9,7 +9,7 @@
       <v-toolbar-title
         class="headline"
       >
-        ApiHub
+        memo
       </v-toolbar-title>
       <v-spacer />
       <TheToolbarSearch />
@@ -17,17 +17,23 @@
         <v-btn
           icon
         >
-          <v-icon>mdi-home</v-icon>
+          <v-icon>
+            mdi-home
+          </v-icon>
         </v-btn>
         <v-btn
           icon
         >
-          <v-icon>mdi-plus</v-icon>
+          <v-icon>
+            mdi-plus
+          </v-icon>
         </v-btn>
         <v-btn
           icon
         >
-          <v-icon>mdi-settings</v-icon>
+          <v-icon>
+            mdi-settings
+          </v-icon>
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
