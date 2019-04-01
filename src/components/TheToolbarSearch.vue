@@ -34,12 +34,16 @@ export default {
   },
   computed: {
     items() {
-      return this.records.map((record) => {
-        const title = record.title.length > this.titleLimit
-          ? `${record.title.slice(0, this.titleLimit)}...`
-          : record.title;
-        return title;
-      });
+      return this.records
+        .map((record) => {
+          const reg = new RegExp(`\\w*${this.q}\\w*`, 'gi');
+          const titles = record.title.match(reg);
+          const title = titles ? titles[0] : '';
+          const contents = record.content.match(reg);
+          const content = contents ? contents[0] : '';
+          return title || content || '';
+        })
+        .filter(word => word !== '');
     },
   },
   watch: {
@@ -50,7 +54,7 @@ export default {
   methods: {
     search: _.debounce(function anonymous() {
       this.searchRecords();
-    }, 250),
+    }, 500),
     searchRecords() {
       this.setLoading(this.loadingColor);
       this.$store.dispatch('record/searchRecords', {
