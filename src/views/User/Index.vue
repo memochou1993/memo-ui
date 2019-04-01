@@ -28,7 +28,13 @@ export default {
   computed: {
     ...mapState([
       'loading',
+      'query',
     ]),
+  },
+  watch: {
+    query() {
+      this.fetchRecords();
+    },
   },
   created() {
     this.fetchRecords();
@@ -40,6 +46,7 @@ export default {
         params: {
           with: 'type,tags',
           paginate: 50,
+          q: this.query,
         },
       })
         .then(({ data }) => {

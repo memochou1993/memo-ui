@@ -13,6 +13,7 @@ export default new Vuex.Store({
     loading: false,
     error: null,
     noData: false,
+    query: '',
   },
   mutations: {
     setLoading(state, loading) {
@@ -24,12 +25,18 @@ export default new Vuex.Store({
     setNoData(state, noData) {
       state.noData = noData;
     },
+    setQuery(state, query) {
+      state.query = query;
+    },
   },
   actions: {
     initialState(context) {
       context.commit('setLoading', true);
       context.commit('setError', null);
       context.commit('setNoData', false);
+    },
+    setQuery(context, query) {
+      context.commit('setQuery', query);
     },
   },
 });
