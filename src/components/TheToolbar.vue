@@ -9,7 +9,13 @@
       <v-toolbar-title
         class="headline"
       >
-        memo
+        <router-link
+          id="title"
+          to="/"
+          class="white--text"
+        >
+          memo
+        </router-link>
       </v-toolbar-title>
       <v-spacer />
       <TheToolbarSearch />
@@ -18,7 +24,7 @@
           icon
         >
           <v-icon>
-            mdi-home
+            mdi-tag-multiple
           </v-icon>
         </v-btn>
         <v-btn
@@ -49,3 +55,9 @@ export default {
   },
 };
 </script>
+
+<style lang="stylus" scoped>
+#title
+  text-decoration: none
+</style>
+
