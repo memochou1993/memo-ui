@@ -72,7 +72,7 @@ export default {
       this.$store.dispatch('record/searchRecords', {
         url: '/users/me/records/search',
         params: {
-          with: 'type,tags',
+          with: 'tags',
           q: this.query,
         },
       })

@@ -1,8 +1,8 @@
 <template>
   <div>
     <v-card
-      :color="color"
       dark
+      color="info lighten-2"
     >
       <v-card-title
         class="title"
@@ -12,26 +12,17 @@
       <v-card-text
         class="white text--primary"
       >
-        <div>
-          <component
-            :is="setComponent(item.type.name)"
-            :item="item"
-          />
-        </div>
-        <div>
-          <AppChip
-            :items="item.tags"
-            color="secondary"
-          />
-        </div>
+        <p>
+          {{ item.content }}
+        </p>
+        <AppChip
+          :items="item.tags"
+          color="secondary"
+        />
         <div
-          class="text-xs-right"
+          class="text-xs-right text--secondary"
         >
-          <span
-            class="text--secondary"
-          >
-            {{ item.date }}
-          </span>
+          {{ item.date }}
         </div>
       </v-card-text>
     </v-card>
@@ -39,28 +30,16 @@
 </template>
 
 <script>
-import TypeText from '@/components/record/types/TypeText.vue';
 import AppChip from '@/components/AppChip.vue';
 
 export default {
   components: {
-    TypeText,
     AppChip,
   },
   props: {
-    color: {
-      type: String,
-      required: true,
-    },
     item: {
       type: Object,
       required: true,
-    },
-  },
-  methods: {
-    setComponent(type) {
-      // return `Type${type.charAt(0).toUpperCase()}${type.slice(1)}`;
-      return 'TypeText';
     },
   },
 };

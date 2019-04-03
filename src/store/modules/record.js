@@ -3,36 +3,7 @@ import axios from 'axios';
 export default {
   namespaced: true,
   state: {
-    icons: {
-      type: {
-        text: 'mdi-notebook',
-        url: 'mdi-link',
-        image: 'mdi-file-image',
-        video: 'mdi-file-video',
-        audio: 'mdi-file-music',
-        file: 'mdi-file',
-        milestone: 'mdi-trophy',
-        html: 'mdi-language-html5',
-        markdown: 'mdi-markdown',
-        json: 'mdi-json',
-        coordinate: 'mdi-map-marker',
-      },
-    },
-    colors: {
-      type: {
-        text: 'light-blue',
-        url: 'light-green',
-        image: 'purple',
-        video: 'purple',
-        audio: 'purple',
-        file: 'purple',
-        milestone: 'pink',
-        html: 'cyan',
-        markdown: 'cyan',
-        json: 'cyan',
-        coordinate: 'pink',
-      },
-    },
+    //
   },
   mutations: {
     //

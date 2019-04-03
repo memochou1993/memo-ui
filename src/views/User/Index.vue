@@ -55,7 +55,7 @@ export default {
       this.$store.dispatch('record/fetchRecords', {
         url: '/users/me/records',
         params: {
-          with: 'type,tags',
+          with: 'tags',
           paginate: 50,
           q: this.query,
         },

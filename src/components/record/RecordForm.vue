@@ -1,0 +1,9 @@
+<template>
+  <div>
+    <v-form>
+      <v-text-field
+        required
+      />
+    </v-form>
+  </div>
+</template>
