@@ -15,6 +15,7 @@
       v-else
       outline
       color="primary"
+      @click="refresh()"
     >
       <v-icon>
         mdi-refresh
@@ -32,6 +33,11 @@ export default {
       'error',
       'noData',
     ]),
+  },
+  methods: {
+    refresh() {
+      this.$store.dispatch('setRefresh', true);
+    },
   },
 };
 </script>

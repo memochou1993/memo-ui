@@ -62,19 +62,19 @@ export default {
           params,
         })
           .then(({ data }) => {
-            context.commit('setNoData', data.data.length === 0, { root: true });
+            context.dispatch('setNoData', data.data.length === 0, { root: true });
             resolve(data);
           })
           .catch((error) => {
             setTimeout(() => {
-              context.commit('setError', error, { root: true });
-              context.commit('setNoData', true, { root: true });
+              context.dispatch('setError', error, { root: true });
+              context.dispatch('setNoData', true, { root: true });
             }, 500);
             reject(error);
           })
           .then(() => {
             setTimeout(() => {
-              context.commit('setLoading', false, { root: true });
+              context.dispatch('setLoading', false, { root: true });
             }, 500);
           });
       });

@@ -30,6 +30,7 @@ export default {
       'loading',
       'error',
       'noData',
+      'refresh',
       'query',
     ]),
     show() {
@@ -40,6 +41,11 @@ export default {
     query() {
       this.fetchRecords();
     },
+    refresh(value) {
+      if (value) {
+        this.fetchRecords();
+      }
+    },
   },
   created() {
     this.fetchRecords();
@@ -47,7 +53,7 @@ export default {
   methods: {
     fetchRecords() {
       this.$store.dispatch('record/fetchRecords', {
-        url: '/users/me/records',
+        url: '/users/me/recordsa',
         params: {
           with: 'type,tags',
           paginate: 50,
