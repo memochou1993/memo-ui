@@ -28,18 +28,17 @@
             {{ title }}
           </v-card-title>
           <v-card-text
-            class="white text--primary"
+            class="white text--primary py-5"
           >
+            <RecordNoData
+              v-if="!error && noData"
+            />
             <v-progress-circular
-              v-if="!noData"
+              v-else
               :size="60"
               :width="4"
               :color="`${color} lighten-2`"
-              indeterminate
-              class="my-5"
-            />
-            <RecordNoData
-              v-else
+              :indeterminate="loading"
             />
           </v-card-text>
         </v-card>
