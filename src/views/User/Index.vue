@@ -53,7 +53,7 @@ export default {
   methods: {
     fetchRecords() {
       this.$store.dispatch('record/fetchRecords', {
-        url: '/users/me/recordsa',
+        url: '/users/me/records',
         params: {
           with: 'type,tags',
           paginate: 50,

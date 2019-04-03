@@ -19,7 +19,7 @@
             {{ iconize(item.type.name) }}
           </v-icon>
         </template>
-        <CardText
+        <RecordCard
           :item="item"
           :color="`${colorize(item.type.name)} lighten-2`"
         />
@@ -44,11 +44,11 @@
 
 <script>
 import { mapState } from 'vuex';
-import CardText from '@/components/record/cards/CardText.vue';
+import RecordCard from '@/components/record/RecordCard.vue';
 
 export default {
   components: {
-    CardText,
+    RecordCard,
   },
   props: {
     items: {
